@@ -1,0 +1,15 @@
+# infra/k8s/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: financial-analyzer-svc
+  labels:
+    app: financial-analyzer
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 8000
+      protocol: TCP
+  selector:
+    app: financial-analyzer
